@@ -3,241 +3,231 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NOGAME AI - Pro V2</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<title>GRAPHIC PROFESSIONAL SCHOOL</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{height:100vh;font-family:Poppins;background:#000;overflow:hidden}
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+    body{background:linear-gradient(135deg,#0e1621,#1b273b);color:#fff;display:flex;flex-direction:column;align-items:center;min-height:100vh;overflow-x:hidden;}
 
-/* BACKGROUND */
-.bg{
-position:fixed;inset:0;z-index:-1;
-background:
-radial-gradient(circle at 20% 20%, #1abc9c55, transparent 40%),
-radial-gradient(circle at 80% 30%, #3498db55, transparent 40%),
-radial-gradient(circle at 50% 80%, #ff7e5f55, transparent 40%);
-animation:bg 20s ease-in-out infinite;
-}
-@keyframes bg{0%{transform:scale(1)}50%{transform:scale(1.08)}100%{transform:scale(1)}}
+    header{width:100%;padding:20px;text-align:center;background:linear-gradient(90deg,#00c6ff,#0072ff);box-shadow:0 4px 12px rgba(0,0,0,0.5);border-bottom-left-radius:20px;border-bottom-right-radius:20px;}
+    header img{height:60px;}
+    header h1{margin-top:10px;font-weight:700;font-size:1.8rem;color:#fff;}
 
-.app{
-max-width:540px;height:100vh;margin:auto;
-background:rgba(0,0,0,.6);
-backdrop-filter:blur(25px);
-display:flex;flex-direction:column
-}
+    .form-container{
+        background:linear-gradient(135deg,#1c273b,#2a3b5c);
+        padding:30px 20px;
+        border-radius:20px;
+        box-shadow:0 8px 25px rgba(0,0,0,0.5);
+        width:90%;
+        max-width:500px;
+        margin-top:30px;
+        animation:fadeIn 1s ease-out;
+    }
+    @keyframes fadeIn{
+        from{opacity:0;transform:translateY(-20px);}
+        to{opacity:1;transform:translateY(0);}
+    }
+    .form-container h2{text-align:center;margin-bottom:20px;font-weight:700;color:#00ffe3;}
 
-/* HEADER */
-.header{
-padding:14px;display:flex;gap:10px;align-items:center;
-color:#fff;border-bottom:1px solid #ffffff18
-}
-.header img{width:42px;height:42px;border-radius:12px}
-.header h1{font-size:17px}
-.header span{font-size:11px;opacity:.7}
-.header button{
-margin-left:auto;background:#ff4d4d;
-border:none;color:#fff;border-radius:6px;
-padding:4px 8px;font-weight:600;cursor:pointer
-}
+    label{display:block;margin-top:15px;font-weight:600;color:#ddd;}
+    input[type="text"], input[type="email"], select{
+        width:100%;padding:12px;margin-top:5px;border-radius:8px;border:none;background:#3a4a6c;color:#fff;
+    }
+    input::placeholder{color:#aaa;}
 
-/* CHAT */
-.chat{
-flex:1;padding:16px;overflow-y:auto;
-display:flex;flex-direction:column;gap:14px;
-scroll-behavior:smooth
-}
+    button{
+        margin-top:25px;width:100%;padding:15px;background:#25D366;color:white;font-size:16px;font-weight:700;border:none;border-radius:10px;
+        cursor:pointer;transition:all 0.3s ease;
+    }
+    button:hover{background:#128C7E;transform:scale(1.05);}
 
-.msg{
-max-width:90%;padding:14px 18px;
-border-radius:20px;font-size:15px;
-line-height:1.45;white-space:pre-wrap;position:relative
-}
+    .typing-text{
+        font-family:monospace;
+        color:#00ffe3;
+        margin-top:10px;
+        min-height:24px;
+    }
 
-.user{
-align-self:flex-end;
-background:linear-gradient(135deg,#ff8a00,#ff3d00);
-color:#fff;border-bottom-right-radius:6px
-}
-.ai{
-align-self:flex-start;
-background:linear-gradient(135deg,#1abc9c,#3498db);
-color:#fff;border-bottom-left-radius:6px
-}
-.pin{border:2px solid gold;box-shadow:0 0 10px gold}
+    .news{
+        background:linear-gradient(135deg,#ff7e5f,#feb47b);
+        margin-top:30px;
+        padding:20px;
+        border-radius:20px;
+        width:90%;
+        max-width:600px;
+        box-shadow:0 6px 20px rgba(0,0,0,0.4);
+        position:relative;
+    }
+    .news h3{color:#fff;margin-bottom:10px;text-shadow:1px 1px 2px #000;}
+    .news p{color:#222;font-weight:600;}
 
-/* ACTIONS (AI ONLY) */
-.actions{
-display:flex;gap:10px;
-justify-content:flex-end;
-margin-top:10px
-}
-.actions button{
-border:none;border-radius:8px;
-padding:6px 10px;
-font-size:15px;cursor:pointer;
-background:#ff8a00;color:#fff
-}
-.actions .copy{}
-.actions .pinbtn{}
-.actions .del{}
-
-/* INPUT */
-.input{
-padding:12px;border-top:1px solid #ffffff18;
-display:flex;gap:10px
-}
-textarea{
-flex:1;resize:none;min-height:46px;
-border:none;border-radius:18px;
-padding:12px 16px;background:#ffffff22;
-color:#fff;font-size:15px;outline:none
-}
-.send{
-width:46px;height:46px;border:none;
-border-radius:50%;background:#10a37f;
-display:flex;align-items:center;justify-content:center
-}
-.send svg{width:22px;fill:#fff}
-
-/* TYPING */
-.typing{display:flex;gap:6px;margin-left:4px}
-.typing div{
-width:8px;height:8px;border-radius:50%;
-background:#fff;animation:blink 1s infinite
-}
-.typing div:nth-child(2){animation-delay:.2s}
-.typing div:nth-child(3){animation-delay:.4s}
-@keyframes blink{0%,80%,100%{opacity:.2}40%{opacity:1}}
+    /* ===== Admin Panel ===== */
+    #adminToggleBtn{
+        margin-top:20px;width:90%;max-width:400px;padding:12px;border:none;border-radius:12px;background:#ff5722;color:#fff;font-weight:700;cursor:pointer;
+        transition:0.3s;
+    }
+    #adminToggleBtn:hover{background:#e64a19;transform:scale(1.05);}
+    .admin-panel{
+        background:linear-gradient(135deg,#4b6cb7,#182848);
+        padding:20px;
+        border-radius:20px;
+        width:90%;
+        max-width:400px;
+        margin-top:15px;
+        display:none;
+        box-shadow:0 6px 20px rgba(0,0,0,0.4);
+        text-align:center;
+    }
+    .admin-panel input[type="text"]{
+        width:90%;
+        padding:10px;
+        border-radius:8px;
+        border:none;
+        margin-bottom:10px;
+        background:#3a4a6c;
+        color:#fff;
+    }
+    .admin-panel .admin-buttons{
+        display:flex;
+        justify-content:space-between;
+        margin-top:10px;
+    }
+    .admin-panel .admin-buttons button{
+        width:45%;
+        padding:10px;
+        font-size:14px;
+        border-radius:8px;
+    }
+    .admin-panel .admin-buttons button.add{background:#00c853;color:#fff;}
+    .admin-panel .admin-buttons button.add:hover{background:#009624;}
+    .admin-panel .admin-buttons button.delete{background:#d50000;color:#fff;}
+    .admin-panel .admin-buttons button.delete:hover{background:#9b0000;}
 </style>
 </head>
 <body>
-<div class="bg"></div>
-<div class="app">
-  <div class="header">
+
+<header>
     <img src="https://i.postimg.cc/m22rtck7/IMG-20260113-WA0070.jpg">
-    <div>
-      <h1>NOGAME AI</h1>
-      <span>Assistant Intelligent</span>
+    <h1>GRAPHIC PROFESSIONAL SCHOOL</h1>
+</header>
+
+<div class="form-container">
+    <h2>Inscription</h2>
+    <form id="registrationForm">
+        <label>Nom complet</label>
+        <input type="text" id="fullname" placeholder="Votre nom complet" required>
+
+        <label>Email</label>
+        <input type="email" id="email" placeholder="Votre email" required>
+
+        <label>Choisir le cours</label>
+        <select id="course" required>
+            <option value="">-- Sélectionnez un cours --</option>
+            <option value="Design Graphique (500$)">Design Graphique (500$)</option>
+            <option value="Illustration Digitale (400$)">Illustration Digitale (400$)</option>
+            <option value="Animation 2D/3D (700$)">Animation 2D/3D (700$)</option>
+            <option value="Web Design (600$)">Web Design (600$)</option>
+        </select>
+
+        <label>Niveau</label>
+        <select id="level" required>
+            <option value="">-- Sélectionnez un niveau --</option>
+            <option value="Débutant">Débutant</option>
+            <option value="Intermédiaire">Intermédiaire</option>
+            <option value="Avancé">Avancé</option>
+        </select>
+
+        <label>Message additionnel</label>
+        <input type="text" id="message" placeholder="Ex: questions ou détails supplémentaires">
+
+        <button type="button" id="whatsappButton">Envoyer via WhatsApp</button>
+        <div class="typing-text" id="typingText"></div>
+    </form>
+</div>
+
+<div class="news" id="newsSection">
+    <h3>Infos récentes</h3>
+    <p id="newsContent">Bienvenue à Graphic Professional School! Toutes les infos importantes apparaîtront ici.</p>
+</div>
+
+<!-- Admin Panel Button -->
+<button id="adminToggleBtn">Admin Panel</button>
+
+<!-- Admin Panel -->
+<div class="admin-panel" id="adminPanel">
+    <input type="text" id="adminInput" placeholder="Nouvelle info...">
+    <div class="admin-buttons">
+        <button class="add" onclick="addNews()">Ajouter</button>
+        <button class="delete" onclick="clearNews()">Supprimer</button>
     </div>
-    <button onclick="clearChat()">🗑 Supp L'historique</button>
-  </div>
-
-  <div id="chat" class="chat"></div>
-
-  <div class="input">
-    <textarea id="q" placeholder="Écris ton message..."></textarea>
-    <button class="send" onclick="ask()">
-      <svg viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg>
-    </button>
-  </div>
 </div>
 
 <script>
-const chat=document.getElementById("chat");
-const input=document.getElementById("q");
-let history=[], pinned=null;
+    const whatsappButton = document.getElementById('whatsappButton');
+    const typingText = document.getElementById('typingText');
+    const adminPanel = document.getElementById('adminPanel');
+    const adminToggleBtn = document.getElementById('adminToggleBtn');
+    const newsContent = document.getElementById('newsContent');
 
-// LOAD HISTORY
-try{history=JSON.parse(localStorage.getItem("nogame_chat"))||[]}catch{}
-pinned=localStorage.getItem("nogame_pin");
+    const defaultNews = "Bienvenue à Graphic Professional School! Toutes les infos importantes apparaîtront ici.";
 
-function save(){localStorage.setItem("nogame_chat",JSON.stringify(history));}
+    // Typing effect
+    function typeEffect(text, element, speed=50){
+        element.textContent = '';
+        let i = 0;
+        const interval = setInterval(()=>{
+            element.textContent += text.charAt(i);
+            i++;
+            if(i>=text.length) clearInterval(interval);
+        }, speed);
+    }
 
-function render(){
-chat.innerHTML="";
-if(pinned){
-  const p=document.createElement("div");
-  p.className="msg ai pin";
-  p.innerText="📌 "+pinned;
-  chat.appendChild(p);
-}
+    whatsappButton.addEventListener('click', () => {
+        const fullname = document.getElementById('fullname').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const course = document.getElementById('course').value;
+        const level = document.getElementById('level').value;
+        const message = document.getElementById('message').value.trim();
 
-history.forEach((m,i)=>{
-  const d=document.createElement("div");
-  d.className="msg "+m.role;
-  d.innerText=m.text;
+        if(!fullname || !email || !course || !level){
+            alert("Veuillez remplir tous les champs obligatoires.");
+            return;
+        }
 
-  if(m.role==="ai" && m.showActions){
-    const a=document.createElement("div");
-    a.className="actions";
+        const text = `Bonjour, je m'appelle ${fullname}.\nEmail: ${email}\nCours choisi: ${course}\nNiveau: ${level}\nMessage: ${message}`;
+        
+        typeEffect(`Préparation du message...`, typingText);
 
-    const c=document.createElement("button");
-    c.className="copy"; c.innerText="📋";
-    c.onclick=()=>{navigator.clipboard.writeText(m.text);alert("Réponse copiée ✅")};
+        setTimeout(()=>{
+            const phone = "50943608217"; // WhatsApp ou
+            const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+            window.open(url, '_blank');
+        }, 1500);
+    });
 
-    const p=document.createElement("button");
-    p.className="pinbtn"; p.innerText="📌";
-    p.onclick=()=>{pinned=(pinned===m.text?null:m.text);localStorage.setItem("nogame_pin",pinned);render();};
+    // News functions
+    function addNews(){
+        const newInfo = document.getElementById('adminInput').value.trim();
+        if(newInfo!==""){
+            newsContent.textContent = newInfo;
+            document.getElementById('adminInput').value = "";
+        }
+    }
+    function clearNews(){
+        newsContent.textContent = defaultNews; // Retounen ak mesaj default
+    }
 
-    const del=document.createElement("button");
-    del.className="del"; del.innerText="❌";
-    del.onclick=()=>{history.splice(i,1);save();render();};
-
-    a.append(c,p,del);
-    d.appendChild(a);
-  }
-
-  chat.appendChild(d);
-});
-chat.scrollTop=chat.scrollHeight;
-}
-
-function clearChat(){
-if(!confirm("Nouvelle conversation ?"))return;
-history=[{role:"ai",text:"👋 Nouvelle conversation. Pose-moi ta question.",showActions:false}];
-pinned=null;
-localStorage.clear();
-save();render();
-}
-
-async function ask(){
-const text=input.value.trim(); if(!text)return;
-history.push({role:"user",text});
-save();render(); input.value="";
-
-const aiMsg={role:"ai",text:"",showActions:false};
-history.push(aiMsg);
-save();render();
-
-const d=chat.lastChild;
-d.innerHTML='<div class="typing"><div></div><div></div><div></div></div>';
-
-// ==== NEW CORS-FREE API ====
-try{
-const res=await fetch("https://chateverywhere.app/api/chat/",{
-  method:"POST",
-  headers:{"Content-Type":"application/json"},
-  body:JSON.stringify({message:text})
-});
-const data=await res.json();
-const reply=data.response||"Réponse indisponible";
-
-let i=0;
-d.innerHTML="";
-function type(){
-  if(i<reply.length){
-    aiMsg.text+=reply[i++];
-    d.innerText=aiMsg.text;
-    setTimeout(type,25);
-  }else{
-    aiMsg.showActions=true;
-    save();render();
-  }
-}
-type();
-}catch{
-aiMsg.text="❌ Erreur serveur.";
-aiMsg.showActions=true;
-save();render();
-}
-}
-
-if(history.length===0){
-history.push({role:"ai",text:"👋 Salut, je suis NOGAME AI. Pose-moi ta question.",showActions:false});
-save();
-}
-render();
+    // Admin panel toggle with password
+    const adminPassword = "Seïde";
+    adminToggleBtn.addEventListener('click', ()=>{
+        const pwd = prompt("Entrer le mot de passe admin:");
+        if(pwd===adminPassword){
+            adminPanel.style.display = adminPanel.style.display==="block"?"none":"block";
+        }else{
+            alert("Mot de passe incorrect!");
+        }
+    });
 </script>
+
 </body>
 </html>
