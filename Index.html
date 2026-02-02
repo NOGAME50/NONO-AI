@@ -7,14 +7,21 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
     *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
-    body{background:linear-gradient(135deg,#0e1621,#1b273b);color:#fff;display:flex;flex-direction:column;align-items:center;min-height:100vh;overflow-x:hidden;}
+    body{background:linear-gradient(135deg,#00ff00,#1b273b);color:#ff5722;display:flex;flex-direction:column;align-items:center;min-height:100vh;overflow-x:hidden;}
 
-    header{width:100%;padding:20px;text-align:center;background:linear-gradient(90deg,#00c6ff,#0072ff);box-shadow:0 4px 12px rgba(0,0,0,0.5);border-bottom-left-radius:20px;border-bottom-right-radius:20px;}
-    header img{height:60px;}
-    header h1{margin-top:10px;font-weight:700;font-size:1.8rem;color:#fff;}
+    header{width:100%;padding:20px;text-align:center;background:linear-gradient(90deg,#00ff00,#ffff00);box-shadow:0 4px 12px rgba(0,0,0,0.5);border-bottom-left-radius:20px;border-bottom-right-radius:20px;}
+    header img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #000;
+  box-shadow: 0 6px 20px #00000066;
+}
+    header h1{margin-top:10px;font-weight:700;font-size:1.8rem;color:#000000;}
 
     .form-container{
-        background:linear-gradient(135deg,#1c273b,#2a3b5c);
+        background:linear-gradient(135deg,#00ff00,#ffff00);
         padding:30px 20px;
         border-radius:20px;
         box-shadow:0 8px 25px rgba(0,0,0,0.5);
@@ -27,29 +34,29 @@
         from{opacity:0;transform:translateY(-20px);}
         to{opacity:1;transform:translateY(0);}
     }
-    .form-container h2{text-align:center;margin-bottom:20px;font-weight:700;color:#00ffe3;}
+    .form-container h2{text-align:center;margin-bottom:20px;font-weight:700;color:#00ff00;}
 
-    label{display:block;margin-top:15px;font-weight:600;color:#ddd;}
+    label{display:block;margin-top:15px;font-weight:600;color:#000000;}
     input[type="text"], input[type="email"], select{
-        width:100%;padding:12px;margin-top:5px;border-radius:8px;border:none;background:#3a4a6c;color:#fff;
+        width:100%;padding:12px;margin-top:5px;border-radius:8px;border:none;background:#ffff00;color:#ff5722;
     }
-    input::placeholder{color:#aaa;}
+    input::placeholder{color:#ff5722;}
 
     button{
-        margin-top:25px;width:100%;padding:15px;background:#25D366;color:white;font-size:16px;font-weight:700;border:none;border-radius:10px;
+        margin-top:25px;width:100%;padding:15px;background:#;color:red;font-size:16px;font-weight:700;border:none;border-radius:10px;
         cursor:pointer;transition:all 0.3s ease;
     }
-    button:hover{background:#128C7E;transform:scale(1.05);}
+    button:hover{background:#000000;transform:scale(1.05);}
 
     .typing-text{
         font-family:monospace;
-        color:#00ffe3;
+        color:#ffa500;
         margin-top:10px;
         min-height:24px;
     }
 
     .news{
-        background:linear-gradient(135deg,#ff7e5f,#feb47b);
+        background:linear-gradient(135deg,#ff5722,#ff5722);
         margin-top:30px;
         padding:20px;
         border-radius:20px;
@@ -58,17 +65,17 @@
         box-shadow:0 6px 20px rgba(0,0,0,0.4);
         position:relative;
     }
-    .news h3{color:#fff;margin-bottom:10px;text-shadow:1px 1px 2px #000;}
+    .news h3{color:#00ff00;margin-bottom:10px;text-shadow:1px 1px 2px #000;}
     .news p{color:#222;font-weight:600;}
 
     /* ===== Admin Panel ===== */
     #adminToggleBtn{
-        margin-top:20px;width:90%;max-width:400px;padding:12px;border:none;border-radius:12px;background:#ff5722;color:#fff;font-weight:700;cursor:pointer;
+        margin-top:20px;width:90%;max-width:400px;padding:12px;border:none;border-radius:12px;background:#ff5722;color:#ffff00;font-weight:700;cursor:pointer;
         transition:0.3s;
     }
     #adminToggleBtn:hover{background:#e64a19;transform:scale(1.05);}
     .admin-panel{
-        background:linear-gradient(135deg,#4b6cb7,#182848);
+        background:linear-gradient(135deg,#ff5722,#100848);
         padding:20px;
         border-radius:20px;
         width:90%;
@@ -123,7 +130,7 @@
         <label>Choisir le cours</label>
         <select id="course" required>
             <option value="">-- Sélectionnez un cours --</option>
-            <option value="Design Graphique (500$)">Design Graphique (500$)</option>
+            <option value="Informatique (500$)">Design Graphique (Inscription500$)</option>
             <option value="Illustration Digitale (400$)">Illustration Digitale (400$)</option>
             <option value="Animation 2D/3D (700$)">Animation 2D/3D (700$)</option>
             <option value="Web Design (600$)">Web Design (600$)</option>
